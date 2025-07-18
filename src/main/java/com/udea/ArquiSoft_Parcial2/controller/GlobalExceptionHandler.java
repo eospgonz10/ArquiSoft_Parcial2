@@ -1,12 +1,5 @@
 package com.udea.ArquiSoft_Parcial2.controller;
 
-/*
- * TEMPORALMENTE COMENTADO PARA EVITAR CONFLICTOS CON SPRINGDOC
- * El GlobalExceptionHandler causa conflictos de versiones con SpringDoc OpenAPI
- * Una vez que Swagger funcione, se puede rehabilitar con una implementación simplificada
- */
-
-/*
 import com.udea.ArquiSoft_Parcial2.dto.ApiResponse;
 import com.udea.ArquiSoft_Parcial2.exception.AlmacenNoEncontradoException;
 import com.udea.ArquiSoft_Parcial2.exception.ProductoDuplicadoException;
@@ -93,4 +86,3 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
     }
 }
-*/

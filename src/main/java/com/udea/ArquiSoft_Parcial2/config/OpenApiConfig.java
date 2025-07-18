@@ -11,25 +11,34 @@ import org.springframework.context.annotation.Configuration;
 import java.util.List;
 
 @Configuration
-public class OpenApiConfig {
+public class OpenAPIConfig {
 
-    @Value("${swagger.server.url:http://localhost:8080/api}")
+    @Value("${swagger.server.url}")
     private String serverUrl;
-
+    
     @Bean
-    public OpenAPI inventarioOpenAPI() {
+    public OpenAPI defineOpenApi() {
+
+        Contact myContact = new Contact();
+        myContact.setName("Estiven, Daniela, Juan y Sara");
+        myContact.setEmail("contacto@udea.edu.co");
+
+        Info information = new Info()
+                .title("API Sistema de Inventario de Almacenes")
+                .version("1.0.0")
+                .description("API RESTful para la gestión de inventarios de productos en almacenes")
+                .termsOfService("https://www.udea.edu.co")
+                .license(new io.swagger.v3.oas.models.info.License()
+                        .name("Apache 2.0")
+                        .url("http://springdoc.org"))
+                .contact(myContact);
+
+        Server server = new Server();
+        server.setUrl(serverUrl);
+        server.setDescription("Servidor de API Inventario");
+
         return new OpenAPI()
-                .info(new Info()
-                        .title("API Sistema de Inventario de Almacenes")
-                        .description("API RESTful para la gestión de inventarios de productos en almacenes")
-                        .version("1.0.0")
-                        .contact(new Contact()
-                                .name("Equipo ArquiSoft Parcial 2")
-                                .email("contacto@udea.edu.co")))
-                .servers(List.of(
-                        new Server()
-                                .url(serverUrl)
-                                .description("Servidor de desarrollo local")
-                ));
+                .info(information)
+                .servers(List.of(server));
     }
 }

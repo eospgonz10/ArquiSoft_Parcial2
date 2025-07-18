@@ -103,7 +103,7 @@ Una vez que la aplicación esté ejecutándose, puedes acceder a la documentaci�
 
 | Recurso | URL | Descripción |
 |---------|-----|-------------|
-| **Swagger UI** | **http://localhost:8080/api/doc/swagger-ui.html** | Interfaz interactiva para probar la API |
+| **Swagger UI** | **http://localhost:8080/doc/swagger-ui.html** | Interfaz interactiva para probar la API |
 | **OpenAPI JSON** | **http://localhost:8080/api/v3/api-docs** | Especificación OpenAPI en formato JSON |
 | **OpenAPI YAML** | **http://localhost:8080/api/v3/api-docs.yaml** | Especificación OpenAPI en formato YAML |
 
