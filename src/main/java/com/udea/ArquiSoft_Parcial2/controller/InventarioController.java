@@ -19,7 +19,7 @@ import java.util.List;
  * Controlador REST para operaciones de inventario de productos
  */
 @RestController
-@RequestMapping("/api/inventario")
+@RequestMapping("/inventario")
 @RequiredArgsConstructor
 @Slf4j
 @Tag(name = "Inventario", description = "API para gestión de inventarios de productos en almacenes")

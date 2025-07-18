@@ -15,13 +15,13 @@ public class OpenAPIConfig {
 
     @Value("${swagger.server.url}")
     private String serverUrl;
-    
+
     @Bean
     public OpenAPI defineOpenApi() {
 
         Contact myContact = new Contact();
         myContact.setName("Estiven, Daniela, Juan y Sara");
-        myContact.setEmail("contacto@udea.edu.co");
+        myContact.setEmail("estiven.ospinag@udea.edu.co");
 
         Info information = new Info()
                 .title("API Sistema de Inventario de Almacenes")
