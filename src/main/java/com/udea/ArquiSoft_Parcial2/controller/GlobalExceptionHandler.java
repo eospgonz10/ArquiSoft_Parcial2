@@ -1,5 +1,12 @@
 package com.udea.ArquiSoft_Parcial2.controller;
 
+/*
+ * TEMPORALMENTE COMENTADO PARA EVITAR CONFLICTOS CON SPRINGDOC
+ * El GlobalExceptionHandler causa conflictos de versiones con SpringDoc OpenAPI
+ * Una vez que Swagger funcione, se puede rehabilitar con una implementación simplificada
+ */
+
+/*
 import com.udea.ArquiSoft_Parcial2.dto.ApiResponse;
 import com.udea.ArquiSoft_Parcial2.exception.AlmacenNoEncontradoException;
 import com.udea.ArquiSoft_Parcial2.exception.ProductoDuplicadoException;
@@ -14,17 +21,10 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Manejador global de excepciones para la API
- * Proporciona respuestas consistentes de error en formato JSON
- */
 @RestControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {
     
-    /**
-     * Maneja excepciones de almacén no encontrado
-     */
     @ExceptionHandler(AlmacenNoEncontradoException.class)
     public ResponseEntity<ApiResponse<Object>> handleAlmacenNoEncontrado(
             AlmacenNoEncontradoException ex) {
@@ -40,9 +40,6 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
     }
     
-    /**
-     * Maneja excepciones de producto duplicado
-     */
     @ExceptionHandler(ProductoDuplicadoException.class)
     public ResponseEntity<ApiResponse<Object>> handleProductoDuplicado(
             ProductoDuplicadoException ex) {
@@ -58,9 +55,6 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
     }
     
-    /**
-     * Maneja errores de validación de campos
-     */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ApiResponse<Map<String, String>>> handleValidationErrors(
             MethodArgumentNotValidException ex) {
@@ -85,9 +79,6 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
     }
     
-    /**
-     * Maneja cualquier otra excepción no controlada
-     */
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiResponse<Object>> handleGenericException(Exception ex) {
         
@@ -102,3 +93,4 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
     }
 }
+*/
