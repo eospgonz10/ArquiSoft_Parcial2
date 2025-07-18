@@ -104,8 +104,35 @@ Una vez que la aplicación esté ejecutándose, puedes acceder a la documentaci�
 | Recurso | URL | Descripción |
 |---------|-----|-------------|
 | **Swagger UI** | **http://localhost:8080/swagger-ui.html** | Interfaz interactiva para probar la API |
-| **OpenAPI JSON** | **http://localhost:8080/api-docs** | Especificación OpenAPI en formato JSON |
-| **OpenAPI YAML** | **http://localhost:8080/api-docs.yaml** | Especificación OpenAPI en formato YAML |
+| **OpenAPI JSON** | **http://localhost:8080/v3/api-docs** | Especificación OpenAPI en formato JSON |
+| **OpenAPI YAML** | **http://localhost:8080/v3/api-docs.yaml** | Especificación OpenAPI en formato YAML |
+
+### 🛠️ Solución de Problemas de Swagger
+
+Si encuentras errores al acceder a Swagger, sigue estos pasos:
+
+#### Error 500 en `/api-docs` o `/v3/api-docs`:
+1. **Verifica que la aplicación compile correctamente:**
+   ```bash
+   ./mvnw clean compile
+   ```
+
+2. **Revisa los logs de la aplicación** para identificar errores específicos
+
+3. **URLs alternativas a probar:**
+   - `http://localhost:8080/swagger-ui/index.html`
+   - `http://localhost:8080/v3/api-docs`
+
+#### Si Swagger UI no carga:
+1. **Verifica que la aplicación esté ejecutándose:** `http://localhost:8080/actuator/health`
+2. **Prueba el endpoint directo:** `http://localhost:8080/api/inventario/productos?almacenId=1`
+3. **Revisa la consola del navegador** para errores JavaScript
+
+#### Configuración mínima funcional:
+Si persisten los problemas, puedes acceder a la API directamente usando:
+- **curl** (como se muestra en los ejemplos)
+- **Postman** o **Insomnia**
+- **REST Client extensions** en VS Code
 
 ### 🔧 Características de Swagger UI
 
