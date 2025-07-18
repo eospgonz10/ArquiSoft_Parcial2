@@ -10,13 +10,10 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
-/**
- * Configuración de OpenAPI/Swagger para la documentación de la API
- */
 @Configuration
 public class OpenApiConfig {
 
-    @Value("${swagger.server.url:http://localhost:8080}")
+    @Value("${swagger.server.url:http://localhost:8080/api}")
     private String serverUrl;
 
     @Bean

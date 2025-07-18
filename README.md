@@ -91,7 +91,81 @@ cd ArquiSoft_Parcial2
 ./mvnw spring-boot:run
 ```
 
-La aplicación estará disponible en: **http://localhost:8080**
+La aplicación estará disponible en: **http://localhost:8080/api**
+
+---
+
+## 📄 Documentación Interactiva de la API (Swagger)
+
+### 🌐 URLs de Acceso a Swagger
+
+Una vez que la aplicación esté ejecutándose, puedes acceder a la documentación interactiva:
+
+| Recurso | URL | Descripción |
+|---------|-----|-------------|
+| **Swagger UI** | **http://localhost:8080/doc/swagger-ui.html** | Interfaz interactiva para probar la API |
+| **OpenAPI JSON** | **http://localhost:8080/api/v3/api-docs** | Especificación OpenAPI en formato JSON |
+| **OpenAPI YAML** | **http://localhost:8080/api/v3/api-docs.yaml** | Especificación OpenAPI en formato YAML |
+
+### 🛠️ Solución de Problemas de Swagger
+
+Si encuentras errores al acceder a Swagger, sigue estos pasos:
+
+#### Error 500 en `/api/v3/api-docs`:
+1. **Verifica que la aplicación compile correctamente:**
+   ```bash
+   ./mvnw clean compile
+   ```
+
+2. **Revisa los logs de la aplicación** para identificar errores específicos
+
+3. **Verifica que PostgreSQL esté ejecutándose** y la base de datos `inventario_db` exista
+
+4. **Prueba primero los endpoints de la API** antes de usar Swagger:
+   ```bash
+   # Verificar que la app esté ejecutándose
+   curl http://localhost:8080/api/actuator/health
+   
+   # Probar endpoint directo
+   curl "http://localhost:8080/api/inventario/productos?almacenId=1" -H "API-Version: 1.0"
+   ```
+
+#### Si Swagger UI no carga:
+1. **URLs alternativas a probar:**
+   - `http://localhost:8080/doc/swagger-ui.html`
+   - `http://localhost:8080/swagger-ui.html`
+
+2. **Verifica en logs** si hay errores relacionados con SpringDoc OpenAPI
+
+#### Configuración mínima funcional:
+Si persisten los problemas, puedes acceder a la API directamente usando:
+- **curl** (como se muestra en los ejemplos)
+- **Postman** o **Insomnia**
+- **REST Client extensions** en VS Code
+
+---
+
+## 📚 API Endpoints
+
+### Base URL: `http://localhost:8080/api/inventario`
+
+| Método | Endpoint | Descripción | Headers Requeridos |
+|--------|----------|-------------|-------------------|
+| `GET` | `/productos?almacenId={id}` | Consultar inventario por almacén | `API-Version: 1.0` |
+| `POST` | `/productos` | Crear nuevo producto | `API-Version: 1.0`, `Content-Type: application/json` |
+
+---
+
+## 📖 Documentación de la API
+
+### 🔍 Consultar Inventario
+
+**GET** `/api/inventario/productos?almacenId={id}`
+
+```bash
+curl -X GET "http://localhost:8080/api/inventario/productos?almacenId=1" 
+     -H "API-Version: 1.0"
+```
 
 ---
 
