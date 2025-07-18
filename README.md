@@ -95,7 +95,29 @@ La aplicación estará disponible en: **http://localhost:8080**
 
 ---
 
-## 📚 API Endpoints
+## � Documentación Interactiva de la API (Swagger)
+
+### 🌐 URLs de Acceso a Swagger
+
+Una vez que la aplicación esté ejecutándose, puedes acceder a la documentación interactiva:
+
+| Recurso | URL | Descripción |
+|---------|-----|-------------|
+| **Swagger UI** | **http://localhost:8080/swagger-ui.html** | Interfaz interactiva para probar la API |
+| **OpenAPI JSON** | **http://localhost:8080/api-docs** | Especificación OpenAPI en formato JSON |
+| **OpenAPI YAML** | **http://localhost:8080/api-docs.yaml** | Especificación OpenAPI en formato YAML |
+
+### 🔧 Características de Swagger UI
+
+- **Interfaz interactiva**: Prueba los endpoints directamente desde el navegador
+- **Documentación completa**: Esquemas, ejemplos y descripciones detalladas
+- **Validación automática**: Validación de parámetros y respuestas
+- **Ejemplos de uso**: Casos de ejemplo para cada endpoint
+- **Descarga de especificación**: Exporta la documentación en JSON/YAML
+
+---
+
+## �📚 API Endpoints
 
 ### Base URL: `http://localhost:8080/api/inventario`
 
