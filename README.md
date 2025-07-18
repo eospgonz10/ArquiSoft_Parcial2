@@ -111,7 +111,7 @@ Una vez que la aplicación esté ejecutándose, puedes acceder a la documentaci�
 
 Si encuentras errores al acceder a Swagger, sigue estos pasos:
 
-#### Error 500 en `/api-docs` o `/v3/api-docs`:
+#### Error 500 en `/v3/api-docs`:
 1. **Verifica que la aplicación compile correctamente:**
    ```bash
    ./mvnw clean compile
@@ -119,14 +119,23 @@ Si encuentras errores al acceder a Swagger, sigue estos pasos:
 
 2. **Revisa los logs de la aplicación** para identificar errores específicos
 
-3. **URLs alternativas a probar:**
-   - `http://localhost:8080/swagger-ui/index.html`
-   - `http://localhost:8080/v3/api-docs`
+3. **Verifica que PostgreSQL esté ejecutándose** y la base de datos `inventario_db` exista
+
+4. **Prueba primero los endpoints de la API** antes de usar Swagger:
+   ```bash
+   # Verificar que la app esté ejecutándose
+   curl http://localhost:8080/actuator/health
+   
+   # Probar endpoint directo
+   curl "http://localhost:8080/api/inventario/productos?almacenId=1" -H "API-Version: 1.0"
+   ```
 
 #### Si Swagger UI no carga:
-1. **Verifica que la aplicación esté ejecutándose:** `http://localhost:8080/actuator/health`
-2. **Prueba el endpoint directo:** `http://localhost:8080/api/inventario/productos?almacenId=1`
-3. **Revisa la consola del navegador** para errores JavaScript
+1. **URLs alternativas a probar:**
+   - `http://localhost:8080/swagger-ui/index.html`
+   - `http://localhost:8080/swagger-ui.html`
+
+2. **Verifica en logs** si hay errores relacionados con SpringDoc OpenAPI
 
 #### Configuración mínima funcional:
 Si persisten los problemas, puedes acceder a la API directamente usando:
