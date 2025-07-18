@@ -105,7 +105,7 @@ public class DataInitializer implements ApplicationRunner {
                      new BigDecimal("8500.00"), 200, 50, 1000, 
                      "Oficina", "Unidad", almacenBogota);
         
-        // Producto con stock crítico para testing
+        // Producto con stock crítico
         crearProducto("ELEC005", "Cable USB-C", "Cable USB-C 2 metros", 
                      new BigDecimal("35000.00"), 2, 5, 50, 
                      "Electrónicos", "Unidad", almacenCentral);
